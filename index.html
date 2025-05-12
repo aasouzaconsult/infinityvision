@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Vision | Estilo e Visão</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #000;
+      --secondary-color: #333;
+      --accent-color: #fff;
+      --text-color: #fff;
+      --light-color: #eee;
+      --dark-color: #000;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      background: var(--dark-color);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .logo-text {
+      margin-left: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: url('https://source.unsplash.com/1600x600/?eyewear,shop') center/cover no-repeat;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+
+    .search-bar input {
+      flex: 1;
+      border: none;
+      padding: 15px 20px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search-bar button {
+      background: var(--dark-color);
+      color: #fff;
+      border: none;
+      padding: 15px 25px;
+      cursor: pointer;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .filter-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      margin: 5px;
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: #fff;
+      color: #000;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-image {
+      cursor: pointer;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .product-description {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .product-price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .buy-btn {
+      background: green;
+      color: white;
+      display: inline-block;
+      padding: 10px 20px;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      flex: 1 1 200px;
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .newsletter {
+      margin-top: 60px;
+      text-align: center;
+      background: #111;
+      padding: 40px 20px;
+    }
+
+    .newsletter input {
+      padding: 10px;
+      width: 300px;
+      max-width: 80%;
+      border: none;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      border: none;
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 10px;
+      margin-top: 40px;
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      color: #ccc;
+    }
+
+    /* Modal de zoom */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      max-height: 80vh;
+      object-fit: contain;
+      animation: zoom 0.3s;
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.1)}
+      to {transform: scale(1)}
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+      
+      .modal-content {
+        width: 95%;
+      }
+    }
+
+    /* Classes para filtragem */
+    .grau { display: block; }
+    .solar { display: block; }
+    .infantil { display: block; }
+    .hide { display: none; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonial-card {
+      background: #111;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-header {
+      margin-bottom: 15px;
+    }
+
+    .testimonial-author h3 {
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .testimonial-rating {
+      color: #FFD700; /* Cor dourada para as estrelas */
+      margin-bottom: 10px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Modal para zoom da imagem -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="zoomedImage">
+  </div>
+
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <img src="img/logo_.png" alt="Infinity Vision">
+        <div class="logo-text">Infinity Vision</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Início</a></li>
+          <li><a href="#products">Produtos</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Estilo e Cuidado com sua Visão</h1>
+    <p>Conheça os modelos mais modernos de óculos de grau e solares</p>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Buscar modelo, cor, tipo...">
+      <button id="search-button">Buscar</button>
+    </div>
+  </section>
+
+  <section class="container" id="products">
+    <h2 class="section-title">Nossos Óculos</h2>
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+      <button class="filter-btn" onclick="filterProducts('grau')">Grau</button>
+      <button class="filter-btn" onclick="filterProducts('solar')">Solar</button>
+      <button class="filter-btn" onclick="filterProducts('infantil')">Infantil</button>
+    </div>
+    <div class="product-grid" id="product-grid">
+      <!-- Produto 1 - Grau -->
+      <div class="product-card grau">
+        <div class="product-image" onclick="openModal('img/1.png')">
+          <img src="img/1.png" alt="Óculos Preto Clássico">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Preto Clássico</h3>
+          <p class="product-description">Modelo unissex, ideal para uso diário com muito estilo.</p>
+          <div class="product-price">R$ 289,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Preto Clássico" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 2 - Solar -->
+      <div class="product-card solar">
+        <div class="product-image" onclick="openModal('img/2.png')">
+          <img src="img/2.png" alt="Óculos Solar Feminino">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Solar Feminino</h3>
+          <p class="product-description">Proteção UV400 com armação leve e sofisticada.</p>
+          <div class="product-price">R$ 349,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Solar Feminino" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 3 - Infantil -->
+      <div class="product-card infantil">
+        <div class="product-image" onclick="openModal('img/3.png')">
+          <img src="img/3.png" alt="Óculos Infantil Azul">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Infantil Azul</h3>
+          <p class="product-description">Flexível e seguro para crianças, com ajuste confortável.</p>
+          <div class="product-price">R$ 199,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Infantil Azul" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 4 - Solar -->
+      <div class="product-card solar">
+        <div class="product-image" onclick="openModal('img/4.png')">
+          <img src="img/4.png" alt="Óculos Aviador Preto">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Aviador Preto</h3>
+          <p class="product-description">Clássico e atemporal com lentes escuras e proteção solar total.</p>
+          <div class="product-price">R$ 369,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Aviador Preto" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 5 - Grau -->
+      <div class="product-card grau">
+        <div class="product-image" onclick="openModal('img/5.png')">
+          <img src="img/5.png" alt="Óculos de Grau Transparente">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos de Grau Transparente</h3>
+          <p class="product-description">Armação moderna e leveza ideal para o dia a dia.</p>
+          <div class="product-price">R$ 315,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Transparente" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 6 - Grau -->
+      <div class="product-card grau">
+        <div class="product-image" onclick="openModal('img/6.png')">
+          <img src="img/6.png" alt="Óculos Redondo Vintage">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Redondo Vintage</h3>
+          <p class="product-description">Inspiração retrô com lentes neutras. Tendência em alta.</p>
+          <div class="product-price">R$ 299,90</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Vintage" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 7 - Solar -->
+      <div class="product-card solar">
+        <div class="product-image" onclick="openModal('img/7.png')">
+          <img src="img/7.png" alt="Óculos Solar Azul Espelhado">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Solar Azul Espelhado</h3>
+          <p class="product-description">Lentes espelhadas com proteção UV e estilo marcante.</p>
+          <div class="product-price">R$ 379,90</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Solar Azul" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 8 - Infantil -->
+      <div class="product-card infantil">
+        <div class="product-image" onclick="openModal('img/8.png')">
+          <img src="img/8.png" alt="Óculos Infantil Rosa">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Infantil Rosa</h3>
+          <p class="product-description">Colorido, confortável e ideal para os pequenos.</p>
+          <div class="product-price">R$ 209,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Infantil Rosa" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 9 - Grau -->
+      <div class="product-card grau">
+        <div class="product-image" onclick="openModal('img/9.png')">
+          <img src="img/9.png" alt="Óculos de Metal Dourado">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos de Metal Dourado</h3>
+          <p class="product-description">Acabamento premium com design refinado.</p>
+          <div class="product-price">R$ 329,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Dourado" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 10 - Grau -->
+      <div class="product-card grau">
+        <div class="product-image" onclick="openModal('img/10.png')">
+          <img src="img/10.png" alt="Óculos Tartaruga Masculino">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Tartaruga Masculino</h3>
+          <p class="product-description">Elegância e estilo em um modelo marcante e masculino.</p>
+          <div class="product-price">R$ 339,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Tartaruga" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 11 - Grau -->
+      <div class="product-card grau">
+        <div class="product-image" onclick="openModal('img/11.png')">
+          <img src="img/11.png" alt="Óculos Business Man">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Business Man</h3>
+          <p class="product-description">Para quem busca um visual moderno e profissional.</p>
+          <div class="product-price">R$ 369,00</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Business Man" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+
+      <!-- Produto 12 - Solar -->
+      <div class="product-card solar">
+        <div class="product-image" onclick="openModal('img/12.png')">
+          <img src="img/12.png" alt="Óculos Elegance Feminino">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Óculos Elegance Feminino</h3>
+          <p class="product-description">Design sofisticado com armação fina e delicada.</p>
+          <div class="product-price">R$ 389,90</div>
+          <a href="https://wa.me/5585996901553?text=Gostaria de comprar o Óculos Elegance Feminino" class="buy-btn">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="about">
+    <h2 class="section-title">Por que escolher a Infinity Vision?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Atendimento Personalizado</h3>
+        <p>Especialistas prontos para ajudar você a escolher seu óculos ideal.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Produtos de Qualidade</h3>
+        <p>Trabalhamos com armações e lentes das melhores marcas.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Entrega Rápida</h3>
+        <p>Receba seu novo visual com agilidade e segurança.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="about">
+  <h2 class="section-title">Depoimentos</h2>
+  <div class="testimonials-grid">
+    <!-- Depoimento 1 -->
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <div class="testimonial-author">
+          <h3>Alex Souza</h3>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <p class="testimonial-text">"O atendimento na Infinity Vision foi excepcional! Me ajudaram a encontrar óculos que combinam perfeitamente com o formato do meu rosto e ainda conseguiram fazer as lentes no mesmo dia. Recomendo demais!"</p>
+    </div>
+
+    <!-- Depoimento 2 -->
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <div class="testimonial-author">
+          <h3>Lídia Santos</h3>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+      </div>
+      <p class="testimonial-text">"Comprei meus óculos de grau na Infinity Vision e estou muito satisfeito. O atendimento foi muito profissional, explicaram todas as opções de lentes e armações. Meus óculos ficaram perfeitos e com um preço justo."</p>
+    </div>
+
+    <!-- Depoimento 3 -->
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <div class="testimonial-author">
+          <h3>Ana Oliveira</h3>
+          <div class="testimonial-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <p class="testimonial-text">"Levei minha filha na Infinity Visions para fazer óculos infantil e fiquei impressionada com a paciência e cuidado da equipe. Eles têm armações resistentes e divertidas para crianças. Minha filha adorou a experiência!"</p>
+    </div>
+  </div>
+  </section>
+
+  <footer id="contact">
+    <div class="social-links">
+      <a href="https://www.facebook.com/ms_opticastore" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/ms_opticastore" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/5585996901553" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.tiktok.com/ms_opticastore" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>© 2025 Infinity Vision — Fortaleza, CE — contato@msotica.com.br — (85) 99690-1553</p>
+  </footer>
+
+  <script>
+    // Função para filtrar os produtos por categoria
+    function filterProducts(category) {
+      // Remove a classe active de todos os botões
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Adiciona a classe active ao botão clicado
+      event.target.classList.add('active');
+      
+      // Mostra todos os produtos se for 'all'
+      if (category === 'all') {
+        document.querySelectorAll('.product-card').forEach(product => {
+          product.classList.remove('hide');
+        });
+      } else {
+        // Esconde todos os produtos
+        document.querySelectorAll('.product-card').forEach(product => {
+          product.classList.add('hide');
+        });
+        
+        // Mostra apenas os produtos da categoria selecionada
+        document.querySelectorAll('.' + category).forEach(product => {
+          product.classList.remove('hide');
+        });
+      }
+    }
+
+    // Função para buscar produtos
+    function searchProducts() {
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+      const products = document.querySelectorAll('.product-card');
+      
+      products.forEach(product => {
+        const title = product.querySelector('.product-title').textContent.toLowerCase();
+        const description = product.querySelector('.product-description').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          product.classList.remove('hide');
+        } else {
+          product.classList.add('hide');
+        }
+      });
+    }
+
+    // Adiciona evento de clique ao botão de busca
+    document.getElementById('search-button').addEventListener('click', searchProducts);
+    
+    // Adiciona evento de tecla Enter no campo de busca
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        searchProducts();
+      }
+    });
+
+    // Modal para zoom da imagem
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("zoomedImage");
+    const span = document.getElementsByClassName("close")[0];
+
+    // Função para abrir o modal com a imagem ampliada
+    function openModal(imgSrc) {
+      modal.style.display = "block";
+      modalImg.src = imgSrc;
+    }
+
+    // Fecha o modal quando clicar no X
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Fecha o modal quando clicar fora da imagem
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
